@@ -1,0 +1,19 @@
+FIBON: PROCEDURE OPTIONS(MAIN);
+
+   DECLARE (A, B, C) FIXED;
+   DECLARE I FIXED;
+
+   PUT LIST ('Fibonacci Sequence (First 20 Terms):');
+   PUT SKIP;
+
+   A = 0;
+   B = 1;
+   DO I = 1 TO 20;
+      PUT LIST (A);
+      PUT SKIP;
+      C = A + B;
+      A = B;
+      B = C;
+   END;
+
+END FIBON;

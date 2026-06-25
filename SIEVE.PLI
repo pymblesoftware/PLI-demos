@@ -1,0 +1,30 @@
+SIEVE: PROCEDURE OPTIONS(MAIN);
+
+   DECLARE N     FIXED INITIAL(100);
+   DECLARE PRIME(100) BIT(1);
+   DECLARE (I, J) FIXED;
+
+   DO I = 2 TO N;
+      PRIME(I) = '1'B;
+   END;
+
+   DO I = 2 TO N;
+      IF PRIME(I) THEN DO;
+         J = I * I;
+         DO WHILE (J <= N);
+            PRIME(J) = '0'B;
+            J = J + I;
+         END;
+      END;
+   END;
+
+   PUT LIST ('Primes up to 100:');
+   PUT SKIP;
+   DO I = 2 TO N;
+      IF PRIME(I) THEN DO;
+         PUT LIST (I);
+         PUT SKIP;
+      END;
+   END;
+
+END SIEVE;

@@ -1,0 +1,16 @@
+FACT: PROCEDURE OPTIONS(MAIN);
+
+   DECLARE N     FIXED;
+   DECLARE I     FIXED;
+   DECLARE F     FLOAT;
+
+   DO N = 0 TO 12;
+      F = 1.0;
+      DO I = 1 TO N;
+         F = F * I;
+      END;
+      PUT LIST (N, '! = ', F);
+      PUT SKIP;
+   END;
+
+END FACT;

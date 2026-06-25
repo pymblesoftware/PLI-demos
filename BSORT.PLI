@@ -1,0 +1,36 @@
+BSORT: PROCEDURE OPTIONS(MAIN);
+
+   DECLARE N        FIXED INITIAL(10);
+   DECLARE ARR(10)  FIXED;
+   DECLARE (I, J, T) FIXED;
+
+   ARR(1) = 64;  ARR(2) = 34;  ARR(3) = 25;
+   ARR(4) = 12;  ARR(5) = 22;  ARR(6) = 11;
+   ARR(7) = 90;  ARR(8) = 45;  ARR(9) = 73;
+   ARR(10) = 8;
+
+   PUT LIST ('Before:');
+   PUT SKIP;
+   DO I = 1 TO N;
+      PUT LIST (ARR(I));
+   END;
+   PUT SKIP;
+
+   DO I = 1 TO N-1;
+      DO J = 1 TO N-I;
+         IF ARR(J) > ARR(J+1) THEN DO;
+            T        = ARR(J);
+            ARR(J)   = ARR(J+1);
+            ARR(J+1) = T;
+         END;
+      END;
+   END;
+
+   PUT LIST ('After:');
+   PUT SKIP;
+   DO I = 1 TO N;
+      PUT LIST (ARR(I));
+   END;
+   PUT SKIP;
+
+END BSORT;

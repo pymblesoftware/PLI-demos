@@ -1,0 +1,19 @@
+GCDALG: PROCEDURE OPTIONS(MAIN);
+
+   DECLARE A(5) FIXED INITIAL(56, 100, 270,  48, 1071);
+   DECLARE B(5) FIXED INITIAL(98,  75, 192,  18,  462);
+   DECLARE (X, Y, R, I) FIXED;
+
+   DO I = 1 TO 5;
+      X = A(I);
+      Y = B(I);
+      DO WHILE (Y ^= 0);
+         R = MOD(X, Y);
+         X = Y;
+         Y = R;
+      END;
+      PUT LIST ('GCD(', A(I), ',', B(I), ') = ', X);
+      PUT SKIP;
+   END;
+
+END GCDALG;

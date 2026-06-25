@@ -1,0 +1,8 @@
+HELLO: PROCEDURE OPTIONS(MAIN);
+
+   PUT LIST ('Hello, World!');
+   PUT SKIP;
+   PUT LIST ('Running on CP/M with PL/I-80');
+   PUT SKIP;
+
+END HELLO;
